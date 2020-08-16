@@ -1,0 +1,132 @@
+---
+output: github_document
+---
+
+
+
+
+<!-- README.md is generated from README.Rmd. Please edit that file -->
+
+```{r, include = FALSE}
+knitr::opts_chunk$set(
+  collapse = TRUE,
+  comment = "#>",
+  fig.path = "man/figures/README-",
+  out.width = "100%"
+)
+```
+
+# KapsarcR
+
+<!-- badges: start -->
+[![lifecycle](https://img.shields.io/badge/lifecycle-experimental-orange.svg)](https://www.tidyverse.org/lifecycle/#experimental)
+<!-- badges: end -->
+
+R clint to access the data portal's API of King Abdullah Petroleum Studies and Research Center
+
+The documentations of the API can be found [here](https://datasource.kapsarc.org/api/v2/console#!/)
+
+
+
+## Installation
+
+
+``` r
+devtools::install_github("naif-alsader/KapsarcR")
+```
+
+## List Datasets
+
+
+* list all datasets
+
+```{r example}
+library(KapsarcR)
+library(tidyverse)
+
+datasets<-list_datasets()
+
+```
+
+
+* Filter the search
+
+```{r, eval=FALSE}
+# by Country
+datasets<-list_datasets(country = "Saudi Arabia")
+
+# by Theme
+datasets<-list_datasets(theme  = "Water")
+
+# by Keyword
+datasets<-list_datasets(keyword  = "Water")
+
+
+```
+
+
+* Filter by two arguments
+
+There are two ways filter two arguments:
+1. if both arguments appear together (use operation = `and`) *the default value*
+2. if either arguments one or two appears (use operation = `or`)]
+
+```{r, eval=FALSE}
+
+datasets<-list_datasets(keyword  = "Water", theme = "Water", operation = "or")
+
+```
+
+
+* filter using The Opendatasoft Query Language (ODSQL) 
+
+
+```{r, eval=FALSE}
+datasets<-list_datasets(q =  "default.theme = 'Water' or default.theme = 'Transportation'")
+
+
+datasets<-list_datasets(q =  "default.modified > '2019'")
+
+
+datasets<-list_datasets(q =  "default.records_count > 1000000")
+```
+
+
+The fileds that can be used in the query can be found in the meta column (its actually 4 datasets in one column) of the dataset `datasets$metas$default` or `datasets$metas$custom`
+
+here is the complete list:
+
+```{r, echo=FALSE}
+datasets$metas$default  %>% colnames() %>% paste0("default.", .) %>% pander::pander()
+```
+
+```{r, echo=FALSE}
+datasets$metas$custom  %>% colnames() %>% paste0("custom.", .) %>% pander::pander()
+```
+
+
+## Retrive Datasets
+
+```{r, eval=FALSE}
+df <- get_dataset(datasets$dataset_id[1])
+```
+
+
+## List attachments 
+
+```{r}
+attachments <- get_attachments(datasets$dataset_id[1])
+```
+
+
+## Download attachments
+
+```{r, eval=FALSE}
+download_attachments(attachments)
+```
+
+
+
+
+Please note that this project is released with a [Contributor Code of Conduct](CODE_OF_CONDUCT.md).
+  By participating in this project you agree to abide by its terms.
