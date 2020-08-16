@@ -114,25 +114,56 @@ datasets$metas$custom  %>% colnames() %>% paste0("custom.", .) %>% pander::pande
 
 ## Retrive Datasets
 
+* One dataset
+
 ```{r, eval=FALSE}
 df <- get_dataset(datasets$dataset_id[1])
 ```
 
 
+* All datasets that matches the search
+
+```{r, eval=FALSE}
+library(purrr)
+
+df_list <- map(datasets$dataset_id, get_dataset)
+
+```
+
+
 ## List attachments 
 
-```{r}
+* One dataset's attachments
+
+```{r, eval=FALSE}
 attachments <- get_attachments(datasets$dataset_id[1])
 ```
 
 
+* All datasets' attachments that matches the search
+
+
+```{r, eval=FALSE}
+attachments_list <- map(datasets$dataset_id, get_attachments)
+
+```
+
+
+
 ## Download attachments
+
+* One dataset attachments
 
 ```{r, eval=FALSE}
 download_attachments(attachments)
 ```
 
 
+* All datasets' attachments that matches the search
+
+```{r, eval=FALSE}
+map(attachments_list, download_attachments)
+```
 
 
 Please note that this project is released with a [Contributor Code of Conduct](CODE_OF_CONDUCT.md).
