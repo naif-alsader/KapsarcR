@@ -1,5 +1,5 @@
 Package: KapsarcR
-Title: R clint for the King Abdullah Petroleum Studies API
+Title: R Client for the King Abdullah Petroleum Studies API
     and Research Center (KAPSARC)
 Version: 0.0.0.9000
 Authors@R: 
