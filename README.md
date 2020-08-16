@@ -119,20 +119,59 @@ here is the complete list:
 
 ## Retrive Datasets
 
+  - One dataset
+
+<!-- end list -->
+
 ``` r
 df <- get_dataset(datasets$dataset_id[1])
 ```
 
+  - All datasets that matches the search
+
+<!-- end list -->
+
+``` r
+library(purrr)
+
+df_list <- map(datasets$dataset_id, get_dataset)
+```
+
 ## List attachments
+
+  - One dataset’s attachments
+
+<!-- end list -->
 
 ``` r
 attachments <- get_attachments(datasets$dataset_id[1])
 ```
 
+  - All datasets’ attachments that matches the search
+
+<!-- end list -->
+
+``` r
+attachments_list <- map(datasets$dataset_id, get_attachments)
+```
+
 ## Download attachments
+
+  - One dataset attachments
+
+<!-- end list -->
 
 ``` r
 download_attachments(attachments)
+```
+
+  - All datasets’ attachments that matches the search
+
+<!-- end list -->
+
+``` r
+
+map(attachments_list, download_attachments)
 ```
 
 Please note that this project is released with a [Contributor Code of
