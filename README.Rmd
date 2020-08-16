@@ -117,7 +117,7 @@ datasets<-list_datasets(q =  "default.records_count > 1000000")
 ```
 
 
-The fileds that can be used in the query can be found in the meta column (its actually 4 datasets in one column) of the dataset `datasets$metas$default` or `datasets$metas$custom`
+The fields that can be used in the query can be found in the meta column (its actually 4 datasets in one column) of the dataset `datasets$metas$default` or `datasets$metas$custom`
 
 here is the complete list:
 
@@ -136,7 +136,7 @@ datasets$metas$dcat  %>% colnames() %>% paste0("  dcat.", .) %>% pander::pander(
 ```
 
 
-## Retrive Datasets
+## Retrieve Datasets
 
 * One dataset
 

@@ -118,7 +118,7 @@ datasets<-list_datasets(q =  "default.modified > '2019'")
 datasets<-list_datasets(q =  "default.records_count > 1000000")
 ```
 
-The fileds that can be used in the query can be found in the meta column
+The fields that can be used in the query can be found in the meta column
 (its actually 4 datasets in one column) of the dataset
 `datasets$metas$default` or `datasets$metas$custom`
 
@@ -153,7 +153,7 @@ dcat.granularity\_, \_ dcat.contributor\_, \_ dcat.publisher\_type\_, \_
 dcat.contact\_email\_, \_ dcat.accrualperiodicity\_, \_ dcat.spatial\_,
 \_ dcat.dataquality\_, \_ dcat.contact\_name\_ and \_ dcat.creator\_
 
-## Retrive Datasets
+## Retrieve Datasets
 
   - One dataset
 
