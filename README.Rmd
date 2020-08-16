@@ -23,7 +23,7 @@ knitr::opts_chunk$set(
 <!-- badges: end -->
 
 
-**This library is in early devlopment, if you face any problem please open an issue**
+**This library is in early development, if you face any problem please open an issue**
 
 R clint to access the data portal's API of King Abdullah Petroleum Studies and Research Center
 
