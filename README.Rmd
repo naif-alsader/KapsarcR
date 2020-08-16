@@ -68,8 +68,12 @@ datasets<-list_datasets(keyword  = "Water")
 * Filter by two arguments
 
 There are two ways filter two arguments:
+
+
 1. if both arguments appear together (use operation = `and`) *the default value*
-2. if either arguments one or two appears (use operation = `or`)]
+
+
+2. if either argument one or two appears (use operation = `or`)]
 
 ```{r, eval=FALSE}
 
@@ -78,7 +82,7 @@ datasets<-list_datasets(keyword  = "Water", theme = "Water", operation = "or")
 ```
 
 
-* filter using The Opendatasoft Query Language (ODSQL) 
+* Filter using The Opendatasoft Query Language (ODSQL) 
 
 
 ```{r, eval=FALSE}
