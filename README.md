@@ -11,7 +11,7 @@
 **This library is in early development, if you face any problem please
 open an issue**
 
-R clint to access the data portal’s API of King Abdullah Petroleum
+R Client to access the data portal’s API of King Abdullah Petroleum
 Studies and Research Center
 
 The documentations of the API can be found
