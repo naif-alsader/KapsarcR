@@ -1,0 +1,25 @@
+Package: KapsarcR
+Title: R clint for the King Abdullah Petroleum Studies API
+    and Research Center (KAPSARC)
+Version: 0.0.0.9000
+Authors@R: 
+    person(given = "Naif",
+           family = "Alsader",
+           role = c("cre", "aut"),
+           email = "naif.alsader@gmail.com")
+Description: TODO
+License: MIT + file LICENSE
+URL: TODO
+BugReports: TODO
+Imports: 
+    attempt,
+    httr,
+    jsonlite,
+    tibble,
+    curl,
+    glue,
+    fs,
+    purrr
+Encoding: UTF-8
+LazyData: true
+RoxygenNote: 7.1.0
