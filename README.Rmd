@@ -22,6 +22,9 @@ knitr::opts_chunk$set(
 [![lifecycle](https://img.shields.io/badge/lifecycle-experimental-orange.svg)](https://www.tidyverse.org/lifecycle/#experimental)
 <!-- badges: end -->
 
+
+**This library is in early devlopment, if you face any problem please open an issue**
+
 R clint to access the data portal's API of King Abdullah Petroleum Studies and Research Center
 
 The documentations of the API can be found [here](https://datasource.kapsarc.org/api/v2/console#!/)
