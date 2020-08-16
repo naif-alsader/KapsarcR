@@ -1,5 +1,8 @@
 #' @importFrom attempt stop_if_not
 #' @importFrom curl has_internet
+#' @importFrom stringr str_detect
+#' @importFrom rvest html_text
+#' @importFrom xml2 read_html
 check_internet <- function() {
   stop_if_not(.x = has_internet(), msg = "Please check your internet connexion")
 }
@@ -18,4 +21,12 @@ baseurl <- "https://datasource.kapsarc.org/api/v2/catalog"
 
 method <- function(method) {
   paste0(baseurl, "/", method)
+}
+
+
+clean_html  <- function(x) {
+  # test weathere there is an html tags
+
+  ifelse(str_detect(x, "(</.>)"), rvest::html_text(xml2::read_html(x)),x)
+
 }

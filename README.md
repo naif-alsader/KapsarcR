@@ -44,6 +44,35 @@ library(tidyverse)
 datasets<-list_datasets()
 ```
 
+The dataset returned from `list_datasets()` is not tidy. You can use
+`clean_dataset()` to get a more tidy dataset
+
+``` r
+datasets %>%
+  clean_dataset() %>%
+  head()
+#> # A tibble: 6 x 15
+#>   dataset_id country title description themes keywords number_of_obser…
+#>   <chr>      <list>  <chr> <chr>       <list> <list>              <int>
+#> 1 daily-cha… <NULL>  Dail… "Sources:J… <NULL> <chr [1…              895
+#> 2 balance-o… <chr [… Bala… "This data… <chr … <chr [8…             7456
+#> 3 growth-ra… <chr [… Grow… "<table><t… <chr … <chr [1…              105
+#> 4 the-econo… <chr [… The … "About the… <chr … <chr [4…                0
+#> 5 electrici… <chr [… Elec… "This data… <chr … <chr [1…               18
+#> 6 weekly-us… <chr [… Week… "This data… <chr … <chr [5…               52
+#> # … with 8 more variables: count_of_attchments <int>, date_created <chr>,
+#> #   modified <chr>, reference <chr>, temporal <chr>, fields_label <list>,
+#> #   fields_type <list>, fields_name <list>
+```
+
+and the column names are
+
+    #>  [1] "dataset_id"             "country"                "title"                 
+    #>  [4] "description"            "themes"                 "keywords"              
+    #>  [7] "number_of_observations" "count_of_attchments"    "date_created"          
+    #> [10] "modified"               "reference"              "temporal"              
+    #> [13] "fields_label"           "fields_type"            "fields_name"
+
   - Filter the search
 
 <!-- end list -->
@@ -95,27 +124,34 @@ The fileds that can be used in the query can be found in the meta column
 
 here is the complete list:
 
-*default.records\_count*, *default.modified*,
-*default.source\_domain\_address*, *default.references*,
-*default.keyword*, *default.source\_domain\_title*,
-*default.geographic\_reference*, *default.timezone*, *default.title*,
-*default.parent\_domain*, *default.theme*,
-*default.modified\_updates\_on\_data\_change*,
-*default.metadata\_processed*, *default.data\_processed*,
-*default.territory*, *default.description*,
-*default.modified\_updates\_on\_metadata\_change*,
-*default.shared\_catalog*, *default.source\_domain*,
-*default.attributions*, *default.geographic\_reference\_auto*,
-*default.publisher*, *default.language*, *default.license*,
-*default.source\_dataset*, *default.metadata\_languages*,
-*default.oauth\_scope*, *default.federated* and *default.license\_url*
+\_ default.records\_count\_, \_ default.modified\_, \_
+default.source\_domain\_address\_, \_ default.references\_, \_
+default.keyword\_, \_ default.source\_domain\_title\_, \_
+default.geographic\_reference\_, \_ default.timezone\_, \_
+default.title\_, \_ default.parent\_domain\_, \_ default.theme\_, \_
+default.modified\_updates\_on\_data\_change\_, \_
+default.metadata\_processed\_, \_ default.data\_processed\_, \_
+default.territory\_, \_ default.description\_, \_
+default.modified\_updates\_on\_metadata\_change\_, \_
+default.shared\_catalog\_, \_ default.source\_domain\_, \_
+default.attributions\_, \_ default.geographic\_reference\_auto\_, \_
+default.publisher\_, \_ default.language\_, \_ default.license\_, \_
+default.source\_dataset\_, \_ default.metadata\_languages\_, \_
+default.oauth\_scope\_, \_ default.federated\_ and \_
+default.license\_url\_
 
-*custom.predecessor*, *custom.restricted-comment*,
-*custom.expected-next-release*, *custom.country*,
-*custom.publisher-periodicity*, *custom.iso-region*,
-*custom.last-checked-date*, *custom.related-datasets*, *custom.contact*,
-*custom.data-classification*, *custom.source-copyrights*,
-*custom.unit-of-measure* and *custom.discontinued-data*
+\_ custom.predecessor\_, \_ custom.restricted-comment\_, \_
+custom.expected-next-release\_, \_ custom.country\_, \_
+custom.publisher-periodicity\_, \_ custom.iso-region\_, \_
+custom.last-checked-date\_, \_ custom.related-datasets\_, \_
+custom.contact\_, \_ custom.data-classification\_, \_
+custom.source-copyrights\_, \_ custom.unit-of-measure\_ and \_
+custom.discontinued-data\_
+
+\_ dcat.created\_, \_ dcat.issued\_, \_ dcat.temporal\_, \_
+dcat.granularity\_, \_ dcat.contributor\_, \_ dcat.publisher\_type\_, \_
+dcat.contact\_email\_, \_ dcat.accrualperiodicity\_, \_ dcat.spatial\_,
+\_ dcat.dataquality\_, \_ dcat.contact\_name\_ and \_ dcat.creator\_
 
 ## Retrive Datasets
 
@@ -170,7 +206,6 @@ download_attachments(attachments)
 <!-- end list -->
 
 ``` r
-
 map(attachments_list, download_attachments)
 ```
 

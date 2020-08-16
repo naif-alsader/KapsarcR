@@ -52,6 +52,24 @@ datasets<-list_datasets()
 ```
 
 
+The dataset returned from `list_datasets()` is not tidy. You can use `clean_dataset()` to get a more tidy dataset
+
+
+```{r}
+datasets %>%
+  clean_dataset() %>%
+  head()
+```
+
+and the column names are
+
+```{r, echo=FALSE}
+datasets %>%
+  clean_dataset() %>%
+  colnames() 
+```
+
+
 * Filter the search
 
 ```{r, eval=FALSE}
@@ -104,11 +122,17 @@ The fileds that can be used in the query can be found in the meta column (its ac
 here is the complete list:
 
 ```{r, echo=FALSE}
-datasets$metas$default  %>% colnames() %>% paste0("default.", .) %>% pander::pander()
+datasets$metas$default  %>% colnames() %>% paste0("  default.", .) %>% pander::pander()
 ```
 
 ```{r, echo=FALSE}
-datasets$metas$custom  %>% colnames() %>% paste0("custom.", .) %>% pander::pander()
+datasets$metas$custom  %>% colnames() %>% paste0("  custom.", .) %>% pander::pander()
+```
+
+```{r,  echo=FALSE}
+
+datasets$metas$dcat  %>% colnames() %>% paste0("  dcat.", .) %>% pander::pander()
+
 ```
 
 

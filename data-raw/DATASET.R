@@ -49,6 +49,10 @@ use_package("tibble")
 use_package("glue")
 use_package("fs")
 use_package("purrr")
+use_package("stringr")
+use_package("rvest")
+use_package("xml2")
+
 
 # Clean your description
 use_tidy_description()
